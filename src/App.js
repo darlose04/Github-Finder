@@ -3,7 +3,6 @@ import Navbar from "./components/layout/Navbar";
 // import UserItem from "./components/users/UserItem";
 import Users from "./components/users/Users";
 import Search from "./components/users/Search";
-import PropTypes from "prop-types";
 import axios from "axios";
 import "./App.css";
 
@@ -11,10 +10,6 @@ class App extends Component {
   state = {
     users: [],
     loading: false
-  };
-
-  static propTypes = {
-    searchUsers: PropTypes.func.isRequired
   };
 
   // Don't need this anymore
