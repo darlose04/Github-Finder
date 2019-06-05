@@ -358,6 +358,10 @@ table th {
   margin-bottom: 1rem;
 }
 
+.navbar i {
+  margin-right: 5px;
+}
+
 .navbar ul {
   display: flex;
 }
