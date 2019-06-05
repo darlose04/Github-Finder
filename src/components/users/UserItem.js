@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
-class UserItem extends Component {
+// change class to functional component since it does not need state (until hooks were introduced, state could not be used with functional components)
+// no longer need to use 'this' since it is just a function and not a class
+// class UserItem extends Component {}
+const UserItem = props => {
   // two different ways of doing state
   // constructor(props) {
   //   super(props);
@@ -20,26 +23,24 @@ class UserItem extends Component {
   //   html_url: "https://github.com/mojombo"
   // };
 
-  render() {
-    const { login, avatar_url, html_url } = this.props.user; // this comes from the prop of user that was passed into the UserItem tag in Users.js
-    return (
-      <div className='card text-center'>
-        <img
-          src={avatar_url}
-          alt=''
-          className='round-img'
-          style={{ width: "60px" }}
-        />
-        <h3>{login}</h3>
+  const { login, avatar_url, html_url } = props.user; // this comes from the prop of user that was passed into the UserItem tag in Users.js
+  return (
+    <div className='card text-center'>
+      <img
+        src={avatar_url}
+        alt=''
+        className='round-img'
+        style={{ width: "60px" }}
+      />
+      <h3>{login}</h3>
 
-        <div>
-          <a href={html_url} className='btn btn-dark btn-sm my-1'>
-            More
-          </a>
-        </div>
+      <div>
+        <a href={html_url} className='btn btn-dark btn-sm my-1'>
+          More
+        </a>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default UserItem;
