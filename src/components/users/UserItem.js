@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // change class to functional component since it does not need state (until hooks were introduced, state could not be used with functional components)
 // no longer need to use 'this' since it is just a function and not a class
 // class UserItem extends Component {}
-const UserItem = ({ user: { login, avatar_url, html_url } }) => {
+const UserItem = ({ user: { login, avatar_url } }) => {
   // two different ways of doing state
   // constructor(props) {
   //   super(props);
