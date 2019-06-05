@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Search extends Component {
   // this state doesn't need to be App level, it's relevant to this component
   state = {
     text: ""
+  };
+
+  static propTypes = {
+    searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired
   };
 
   // if you don't use arrow functions, you have to explicitly bind 'this'
@@ -44,6 +50,12 @@ class Search extends Component {
             className='btn btn-dark btn-block'
           />
         </form>
+        <button
+          className='btn btn-light btn-block'
+          onClick={this.props.clearUsers}
+        >
+          Clear
+        </button>
       </div>
     );
   }
