@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // change class to functional component since it does not need state (until hooks were introduced, state could not be used with functional components)
 // no longer need to use 'this' since it is just a function and not a class
@@ -42,6 +43,10 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
       </div>
     </div>
   );
+};
+
+UserItem.propTypes = {
+  user: PropTypes.object.isRequired
 };
 
 export default UserItem;
