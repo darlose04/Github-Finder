@@ -12,17 +12,18 @@ class App extends Component {
     loading: false
   };
 
-  async componentDidMount() {
-    this.setState({ loading: true });
+  // Don't need this anymore
+  // async componentDidMount() {
+  //   this.setState({ loading: true });
 
-    const res = await axios.get(
-      `https://api.github.com/users?client_id=${
-        process.env.REACT_APP_GITHUB_CLIENT_ID
-      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
+  //   const res = await axios.get(
+  //     `https://api.github.com/users?client_id=${
+  //       process.env.REACT_APP_GITHUB_CLIENT_ID
+  //     }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
 
-    this.setState({ users: res.data, loading: false });
-  }
+  //   this.setState({ users: res.data, loading: false });
+  // }
 
   // search github users
   searchUsers = async text => {
