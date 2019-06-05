@@ -11,7 +11,17 @@ class Search extends Component {
 
   onSubmit = e => {
     e.preventDefault(); // using this prevents the default action of it submitting to a file
+
+    // this will pass the props up to App. Add it as a prop in the Search component in App.js
+    // if this happens a lot, it's called prop drilling, sending props up and down the application, which can get messy
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: "" });
   };
+
+  // once the form is submitted, it's calling onSubmit in the search component,
+  // then calling a function in the props called searchUsers and passing in the
+  // text. In App.js, we set the prop in the Search component to call
+  // this.searchUsers in the App.js
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
