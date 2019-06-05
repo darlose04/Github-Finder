@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import UserItem from "./UserItem";
+import Spinner from "../layout/Spinner";
+import PropTypes from "prop-types";
 
-class Users extends Component {
+// changed this to a functional component since there is no longer a need for class
+const Users = ({ users, loading }) => {
   // want to store app level state in App.js. Also need to not hard code these users like this
   // don't need this state anymore since the users are going to be coming in as props. Need to change state to props below
   // state = {
@@ -27,16 +30,23 @@ class Users extends Component {
   //   ]
   // };
 
-  render() {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
       <div style={userStyle}>
-        {this.props.users.map(user => (
+        {users.map(user => (
           <UserItem key={user.id} user={user} />
         ))}
       </div>
     );
   }
-}
+};
+
+Users.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
+};
 
 const userStyle = {
   display: "grid",
