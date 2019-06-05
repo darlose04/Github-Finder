@@ -41,7 +41,7 @@ class App extends Component {
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
 
-    this.setState({ user: res.data, loading: false });
+    this.setState({ users: res.data.items, loading: false });
   };
 
   // get a single Github user
@@ -54,7 +54,7 @@ class App extends Component {
       }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
 
-    this.setState({ users: res.data.items, loading: false });
+    this.setState({ user: res.data, loading: false });
   };
 
   // clear users from state
