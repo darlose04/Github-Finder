@@ -9,12 +9,14 @@ class User extends Component {
     // it takes in username in the getUser method in App.js, login and username are the same here
     // gets all the user info from state and then passes that state back into the User component
     this.props.getUser(this.props.match.params.login);
+    this.props.getUserRepos(this.props.match.params.login);
   }
 
   static propTypes = {
     loading: PropTypes.bool,
     user: PropTypes.object.isRequired,
-    getUser: PropTypes.func.isRequired
+    getUser: PropTypes.func.isRequired,
+    getUserRepos: PropTypes.func.isRequired
   };
 
   render() {
